@@ -1,0 +1,7 @@
+MYSQL_DATABASE=jobportaldb
+MYSQL_USER=portaluser
+MYSQL_PASSWORD=Pass1234
+MYSQL_ROOT_PASSWORD=root
+MYSQL_HOST=mysql
+MYSQL_PORT=3306
+DATABASE_URL=mysql://portaluser:Pass1234@${MYSQL_HOST}:3306/jobportaldb

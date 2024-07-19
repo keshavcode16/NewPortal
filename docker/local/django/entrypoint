@@ -1,0 +1,45 @@
+#!/bin/bash
+
+set -o errexit
+set -o pipefail
+set -o nounset
+
+if [ -z "${MYSQL_USER}" ]; then
+  base_db_user='root'
+  export MYSQL_USER="${base_db_user}"
+fi
+
+export DATABASE_URL="mysql://${MYSQL_USER}:${MYSQL_PASSWORD}@${MYSQL_HOST}:${MYSQL_PORT}/${MYSQL_DATABASE}"
+
+python << END
+import sys
+import time
+import mysql.connector
+from mysql.connector import Error
+
+suggest_unrecoverable_after = 30
+start = time.time()
+while True:
+  try:
+      connection = mysql.connector.connect(
+          host="${MYSQL_HOST}",
+          port="${MYSQL_PORT}",
+          database="${MYSQL_DATABASE}",
+          user="${MYSQL_USER}",
+          password="${MYSQL_PASSWORD}",
+      )
+      if connection.is_connected():
+          print("Connection to MySQL database was successful")
+          break
+  except Error as e:
+      print(f"Error: {e}")
+  finally:
+      if connection.is_connected():
+          connection.close()
+          print("MySQL connection is closed")
+  time.sleep(1)
+END
+
+>&2 echo "MySQL is available"
+
+exec "$@"
