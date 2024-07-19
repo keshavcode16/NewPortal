@@ -344,38 +344,6 @@ DEFAULT_FROM_EMAIL = env(
     default="DEFAULT_FROM_EMAIL",
 )
 
-# EMAIL_HOST = 'smtp.sparkpostmail.com'
-# EMAIL_PORT = 587
-# EMAIL_HOST_USER = 'SMTP_Injection'
-# EMAIL_HOST_PASSWORD = env(
-#     "SPARKPOST_API_KEY",
-#     default="SPARKPOST_API_KEY",
-# )
-# EMAIL_USE_TLS = True
-
-
-# SPARKPOST_API_KEY = env(
-#     "SPARKPOST_API_KEY",
-#     default="SPARKPOST_API_KEY",
-# )
-# EMAIL_BACKEND = 'sparkpost.django.email_backend.SparkPostEmailBackend'
-
-# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-
-# SPARKPOST_OPTIONS = {
-#     'track_opens': False,
-#     'track_clicks': False,
-#     'transactional': True,
-# }
-
-
-# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-# EMAIL_HOST = 'smtp.gmail.com'
-# EMAIL_HOST_USER = 'webevnt2@gmail.com'
-# EMAIL_HOST_PASSWORD = "Keshav@231"
-# EMAIL_PORT = 587
-# EMAIL_USE_TLS = True
-# EMAIL_USE_SSL = False
 
 ELASTICSEARCH_DSL = {
     'default': {

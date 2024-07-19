@@ -19,6 +19,9 @@ makemigrations:
 migrate:
 	docker compose -f local.yml run --rm webapp python manage.py migrate
 
+shell-plus:
+	docker compose -f local.yml run --rm webapp python manage.py shell_plus --print-sql
+
 collectstatic:
 	docker compose -f local.yml run --rm webapp python manage.py collectstatic --no-input --clear
 
