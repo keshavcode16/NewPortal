@@ -63,6 +63,3 @@ search-populate:
 
 search-rebuild:
 	docker compose -f local.yml exec webapp python manage.py search_index --rebuild
-
-
-
